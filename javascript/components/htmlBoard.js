@@ -1,3 +1,4 @@
+// var $ = require('jquery')
 
 var makeHTMLBoard = function(size) {
 
@@ -22,6 +23,8 @@ var makeHTMLBoard = function(size) {
 		}
 	}
 }
+
+
 
 document.addEventListener('DOMContentLoaded', function(){
 	makeHTMLBoard(20)

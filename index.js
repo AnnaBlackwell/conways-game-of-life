@@ -14,12 +14,13 @@ $(boardElements).addClass("dead")
 function updateboard(board, boardElements) {
 	for (var i = 0; i < size; i++) {
 		for (var j = 0; i < size; j++) {
-			$("#row" + i + " .cell" + j).removeClass("alive" || "dead")
+			var cellSelector = "#row" + i + " .cell" + j
+			$(cellSelector).removeClass("alive" || "dead")
 			if (board[i][j] === false) {
-				$("#row" + i + " .cell" + j).addClass("dead")
+				$(cellSelector).addClass("dead")
 			}
 			else if (board[i][j] === true) {
-				$("#row" + i + " .cell" + j).addClass("alive")
+				$(cellSelector).addClass("alive")
 			}
 		}
 	}
