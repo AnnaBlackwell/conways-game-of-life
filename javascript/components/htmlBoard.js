@@ -24,8 +24,6 @@ var makeHTMLBoard = function(size) {
 	}
 }
 
-
-
 document.addEventListener('DOMContentLoaded', function(){
 	makeHTMLBoard(20)
 })
