@@ -1,0 +1,25 @@
+.cell {
+	width: 30px;
+	height: 30px;
+	border-color: gray;
+	border-width: 1px;
+	border-style: solid;
+	position: relative;
+	float: left;
+}
+
+#board {
+	width: 670px;
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: 5%;
+}
+
+.cell .alive {
+	background-color: green;
+}
+
+.cell .dead {
+	background-color: white;
+}
+

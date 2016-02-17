@@ -1,5 +1,5 @@
 
-var makeNewBoard = function(size) {
+var makeHTMLBoard = function(size) {
 
 	var divBoard = document.createElement("div")
 	divBoard.id = "board"
@@ -7,7 +7,7 @@ var makeNewBoard = function(size) {
 	console.log(document.getElementById('page'))
 
 	document.getElementById("page").appendChild(divBoard);
-	// console.log(document.getElementById("row"))
+
 	for (var i = 0; i < size; i++) {
 		var divRow = document.createElement("div")
 		divRow.id = "row" + i
@@ -16,7 +16,7 @@ var makeNewBoard = function(size) {
 
 		for (var j = 0; j < size; j++) {
 			var divCell = document.createElement("div")
-			divCell.className = "cell" + j
+			divCell.className = "cell cell" + j
 
 			document.getElementById("row" + i).appendChild(divCell);
 		}
@@ -24,7 +24,7 @@ var makeNewBoard = function(size) {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-	makeNewBoard(10)
+	makeHTMLBoard(20)
 })
 
-// module.exports = makeNewBoard 
+module.exports = makeHTMLBoard 
