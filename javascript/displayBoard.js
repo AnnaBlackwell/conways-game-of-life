@@ -4,9 +4,9 @@ function displayBoard(board) {
   for(var row of board){
     for(var cell of row){
 
-      // process.stdout.write(cell ? '|X|': '| |')
+
     }
-    // process.stdout.write('\n')
+
   }
 }
 

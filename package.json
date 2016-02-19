@@ -1,7 +1,7 @@
 {
-  "name": "conways",
+  "name": "conways game of sound",
   "version": "0.0.1",
-  "description": "Conways game of life node module",
+  "description": "Conways game of sound",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pietgeursen/conways.git"
+    "url": "git+https://github.com/AnnaBlackwell/conways-game-of-sound.git"
   },
-  "author": "pietgeursen@gmail.com",
-  "license": "ISC",
+  "author": "annablackwell44@gmail.com",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pietgeursen/conways/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/pietgeursen/conways#readme"
+  "homepage": ""
 }

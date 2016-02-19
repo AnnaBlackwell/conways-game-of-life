@@ -5,6 +5,10 @@ var $ = require('jquery')
 	//add a class of 'alive'
 
 
+
+	
+
+
 var getCell = function(row, col) {
 	var selectedCell = "#row" + row + " " + ".cell" + col;
 	return selectedCell;
