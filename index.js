@@ -9,8 +9,6 @@ var spawnRandom = require('./javascript/components/spawnRandom')
 var board = createBoard(20)
 var boardElements = $(".cell")
 
-// $(boardElements).addClass("dead")
-
 //spaceship
 // board[12][10] = true;
 // board[12][11] = true;
@@ -21,7 +19,6 @@ var boardElements = $(".cell")
 // board[14][13] = true;
 // board[15][12] = true;
 // board[15][9] = true;
-
 
 function updateboard(board, boardElements) {
 	for (var i = 0; i < board.length; i++) {
@@ -48,7 +45,7 @@ $(function () {
 $(function () {
 	$('#start-button').click(function() {
 		console.log('start')
-		// spawnRandom(board)
+		// how to trigger start?
 	})
 })
 
