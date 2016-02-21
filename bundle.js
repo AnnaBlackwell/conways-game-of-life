@@ -4,18 +4,30 @@ var makeHTMLBoard = require('./javascript/components/htmlBoard')
 var $ = require('jquery')
 var createBoard = require('./javascript/createBoard')
 var nextBoard = require('./javascript/nextBoard') 
-//got rid of require displayboard
+var spawnRandom = require('./javascript/components/spawnRandom')
+
 
 var board = createBoard(20)
 var boardElements = $(".cell")
 
-$(boardElements).addClass("dead")
+// $(boardElements).addClass("dead")
 
-//to do: make this function work
+//spaceship
+// board[12][10] = true;
+// board[12][11] = true;
+// board[12][12] = true;
+// board[12][13] = true;
+// board[13][9] = true;
+// board[13][13] = true;
+// board[14][13] = true;
+// board[15][12] = true;
+// board[15][9] = true;
+
+
 function updateboard(board, boardElements) {
-	for (var i = 0; i < size; i++) {
-		for (var j = 0; i < size; j++) {
-			var cellSelector = "#row" + i + " .cell" + j
+	for (var i = 0; i < board.length; i++) {
+		for (var j = 0; j < board.length; j++) {
+			var cellSelector = "#row" + i + ", .cell" + j
 			$(cellSelector).removeClass("alive").removeClass("dead")
 			if (board[i][j] === false) {
 				$(cellSelector).addClass("dead")
@@ -27,24 +39,35 @@ function updateboard(board, boardElements) {
 	}
 }
 
+$(function () {
+	$('#spawn-button').click(function() {
+		console.log('click')
+		spawnRandom(board)
+	})
+})
+
+$(function () {
+	$('#start-button').click(function() {
+		console.log('start')
+		// spawnRandom(board)
+	})
+})
+
 var step = function(){
-	// displayBoard(board);
+	updateboard(board, boardElements);
 	board = nextBoard(board);
+	console.log('working')
 }
 
-var intervalStep = setInterval(step, 200);
-
-},{"./javascript/components/htmlBoard":2,"./javascript/createBoard":4,"./javascript/nextBoard":7,"jquery":13}],2:[function(require,module,exports){
-
-
-//to do: make this work
+var intervalStep = setInterval(step, 1000);
+},{"./javascript/components/htmlBoard":2,"./javascript/components/spawnRandom":3,"./javascript/createBoard":5,"./javascript/nextBoard":8,"jquery":14}],2:[function(require,module,exports){
 
 var makeHTMLBoard = function(size) {
 
 	var divBoard = document.createElement("div")
 	divBoard.id = "board"
 
-	console.log(document.getElementById('page'))
+	// console.log(document.getElementById('page'))
 
 	document.getElementById("page").appendChild(divBoard);
 
@@ -67,6 +90,27 @@ document.addEventListener('DOMContentLoaded', function(){
 	makeHTMLBoard(20)
 })
 },{}],3:[function(require,module,exports){
+var $ = require('jquery')
+var createBoard = require('../createBoard')
+var board = createBoard(20)
+
+function spawnRandom(board) {
+	for (var i = 0; i < 20; i++) {
+		for (var j = 0; j < 20; j++) {
+			var cellSelector = "#row" + i + ", .cell" + j
+			$(cellSelector).removeClass("alive").removeClass("dead")
+			if (Math.random() < 0.6) {
+				$(cellSelector).addClass("alive")
+			}
+			else {
+				$(cellSelector).addClass("dead")
+			}
+		}
+	}
+}
+
+module.exports = spawnRandom
+},{"../createBoard":5,"jquery":14}],4:[function(require,module,exports){
 var getNeighbours = require('./getNeighbours')
 function countAliveNeighbours(cellRow, cellColumn, board) {
   var count = 0;
@@ -83,7 +127,7 @@ function countAliveNeighbours(cellRow, cellColumn, board) {
 }
 module.exports = countAliveNeighbours
 
-},{"./getNeighbours":5}],4:[function(require,module,exports){
+},{"./getNeighbours":6}],5:[function(require,module,exports){
 function createBoard(size) {
   var board = [];
 
@@ -98,7 +142,7 @@ function createBoard(size) {
 
 }
 module.exports = createBoard
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var indicesOutOfBounds = require('./indicesOutOfBounds')
 function getNeighbours(cellRow, cellColumn, board) {
 	var neighbours = [];
@@ -115,7 +159,7 @@ function getNeighbours(cellRow, cellColumn, board) {
 //exclude 0,0
 module.exports = getNeighbours
 
-},{"./indicesOutOfBounds":6}],6:[function(require,module,exports){
+},{"./indicesOutOfBounds":7}],7:[function(require,module,exports){
 var outOfBounds = require('./outOfBounds')
 
 function indicesOutOfBounds(rowIndex, columnIndex, array) {
@@ -125,7 +169,7 @@ function indicesOutOfBounds(rowIndex, columnIndex, array) {
 
 module.exports = indicesOutOfBounds
 
-},{"./outOfBounds":9}],7:[function(require,module,exports){
+},{"./outOfBounds":10}],8:[function(require,module,exports){
 var nextCellState = require('./nextCellState')
 var countAliveNeighbours = require('./countAliveNeighbours')
 var createBoard = require('./createBoard')
@@ -146,7 +190,7 @@ function nextBoard(currentBoard) {
 
 module.exports = nextBoard
 
-},{"./countAliveNeighbours":3,"./createBoard":4,"./nextCellState":8}],8:[function(require,module,exports){
+},{"./countAliveNeighbours":4,"./createBoard":5,"./nextCellState":9}],9:[function(require,module,exports){
 var overPopulated = require('./overPopulated')
 var underPopulated = require('./underPopulated')
 var ressurectable = require('./ressurectable')
@@ -178,31 +222,31 @@ function nextCellState(cellState, neighbourCount) {
 
 module.exports = nextCellState
 
-},{"./overPopulated":10,"./ressurectable":11,"./underPopulated":12}],9:[function(require,module,exports){
+},{"./overPopulated":11,"./ressurectable":12,"./underPopulated":13}],10:[function(require,module,exports){
 function outOfBounds(index, array) {
 return (index < 0 || index >= array.length);
 }
 module.exports = outOfBounds
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 function overPopulated(neighbourCount) {
   return neighbourCount > 3;
 }
 module.exports = overPopulated
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function ressurectable(neighbourCount) {
   return neighbourCount === 3;
 }
 module.exports = ressurectable
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 function underPopulated(neighbourCount) {
   return neighbourCount < 2;
 }
 module.exports = underPopulated
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.0
  * http://jquery.com/

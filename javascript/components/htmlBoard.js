@@ -1,13 +1,10 @@
 
-
-//to do: make this work
-
 var makeHTMLBoard = function(size) {
 
 	var divBoard = document.createElement("div")
 	divBoard.id = "board"
 
-	console.log(document.getElementById('page'))
+	// console.log(document.getElementById('page'))
 
 	document.getElementById("page").appendChild(divBoard);
 

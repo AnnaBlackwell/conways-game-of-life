@@ -1,5 +1,5 @@
 {
-  "name": "conways game of sound",
+  "name": "conways-game-of-sound",
   "version": "0.0.1",
   "description": "Conways game of sound",
   "main": "index.js",
@@ -18,7 +18,8 @@
   "scripts": {
     "test": "tape test/**/*.js",
     "start": "node index.js",
-    "browserify": "browserify index.js -o bundle.js"
+    "browserify": "browserify index.js -o bundle.js",
+    "watchify": "watchify index.js -o bundle.js -v"
   },
   "standard": {
     "globals": []
