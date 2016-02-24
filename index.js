@@ -4,21 +4,11 @@ var $ = require('jquery')
 var createBoard = require('./javascript/createBoard')
 var nextBoard = require('./javascript/nextBoard') 
 var spawnRandom = require('./javascript/components/spawnRandom')
-
+var spawnRandomArray = require('./javascript/components/spawnRandomArray')
 
 var board = createBoard(20)
 var boardElements = $(".cell")
 
-//spaceship
-// board[12][10] = true;
-// board[12][11] = true;
-// board[12][12] = true;
-// board[12][13] = true;
-// board[13][9] = true;
-// board[13][13] = true;
-// board[14][13] = true;
-// board[15][12] = true;
-// board[15][9] = true;
 
 function updateboard(board, boardElements) {
 	for (var i = 0; i < board.length; i++) {
@@ -38,7 +28,8 @@ function updateboard(board, boardElements) {
 $(function () {
 	$('#spawn-button').click(function() {
 		console.log('click')
-		spawnRandom(board)
+		// spawnRandom(board)
+		spawnRandomArray(board)
 	})
 })
 

@@ -15,11 +15,11 @@
 	margin-top: 5%;
 }
 
-.cell .alive {
+div .cell .alive {
 	background-color: green;
 }
 
-.cell .dead {
+div .cell .dead {
 	background-color: white;
 }
 
@@ -27,3 +27,4 @@ button {
 	margin: 20px;
 	background-color: #BBC7CE;
 }
+

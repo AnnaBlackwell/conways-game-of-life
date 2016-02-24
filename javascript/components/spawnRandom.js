@@ -16,5 +16,7 @@ function spawnRandom(board) {
 		}
 	}
 }
+//this is working but the next board state has everything with class=dead. 
+//CSS isn't changing for cells with class=alive
 
 module.exports = spawnRandom
