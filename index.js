@@ -46,4 +46,4 @@ var step = function(){
 	console.log('working')
 }
 
-var intervalStep = setInterval(step, 1000);
+var intervalStep = setInterval(step, 100);
