@@ -4,9 +4,7 @@ var makeHTMLBoard = require('./javascript/components/htmlBoard')
 var $ = require('jquery')
 var createBoard = require('./javascript/createBoard')
 var nextBoard = require('./javascript/nextBoard') 
-var spawnRandom = require('./javascript/components/spawnRandom')
 var spawnRandomArray = require('./javascript/components/spawnRandomArray')
-
 var board = createBoard(20)
 var boardElements = $(".cell")
 
@@ -28,16 +26,7 @@ function updateboard(board, boardElements) {
 
 $(function () {
 	$('#spawn-button').click(function() {
-		console.log('click')
-		// spawnRandom(board)
 		spawnRandomArray(board)
-	})
-})
-
-$(function () {
-	$('#start-button').click(function() {
-		console.log('start')
-		// how to trigger start?
 	})
 })
 
@@ -48,7 +37,7 @@ var step = function(){
 }
 
 var intervalStep = setInterval(step, 100);
-},{"./javascript/components/htmlBoard":2,"./javascript/components/spawnRandom":3,"./javascript/components/spawnRandomArray":4,"./javascript/createBoard":6,"./javascript/nextBoard":9,"jquery":15}],2:[function(require,module,exports){
+},{"./javascript/components/htmlBoard":2,"./javascript/components/spawnRandomArray":3,"./javascript/createBoard":5,"./javascript/nextBoard":8,"jquery":14}],2:[function(require,module,exports){
 
 var makeHTMLBoard = function(size) {
 
@@ -82,33 +71,10 @@ var $ = require('jquery')
 var createBoard = require('../createBoard')
 var board = createBoard(20)
 
-function spawnRandom(board) {
-	for (var i = 0; i < 20; i++) {
-		for (var j = 0; j < 20; j++) {
-			var cellSelector = "#row" + i + ", .cell" + j
-			$(cellSelector).removeClass("alive").removeClass("dead")
-			if (Math.random() < 0.6) {
-				$(cellSelector).addClass("alive")
-			}
-			else {
-				$(cellSelector).addClass("dead")
-			}
-		}
-	}
-}
-//this is working but the next board state has everything with class=dead. 
-//CSS isn't changing for cells with class=alive
-
-module.exports = spawnRandom
-},{"../createBoard":6,"jquery":15}],4:[function(require,module,exports){
-var $ = require('jquery')
-var createBoard = require('../createBoard')
-var board = createBoard(20)
-
 function spawnRandomArray(board) {
 	for (var i = 0; i < board.length; i++) {
 	  for (var j = 0; j < board.length; j++) {
-	    	if (Math.random() < 0.6) {
+	    	if (Math.random() < 0.5) {
 	    		board[i][j] = true
 	    	}
 	    	else {
@@ -117,12 +83,10 @@ function spawnRandomArray(board) {
     	}
     }
 }
-//this is working and the next board state keeps some cells with class=alive. 
-//It makes an entire column either alive or dead. 
 
 module.exports = spawnRandomArray
 
-},{"../createBoard":6,"jquery":15}],5:[function(require,module,exports){
+},{"../createBoard":5,"jquery":14}],4:[function(require,module,exports){
 var getNeighbours = require('./getNeighbours')
 function countAliveNeighbours(cellRow, cellColumn, board) {
   var count = 0;
@@ -139,7 +103,7 @@ function countAliveNeighbours(cellRow, cellColumn, board) {
 }
 module.exports = countAliveNeighbours
 
-},{"./getNeighbours":7}],6:[function(require,module,exports){
+},{"./getNeighbours":6}],5:[function(require,module,exports){
 function createBoard(size) {
   var board = [];
 
@@ -154,7 +118,7 @@ function createBoard(size) {
 
 }
 module.exports = createBoard
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var indicesOutOfBounds = require('./indicesOutOfBounds')
 function getNeighbours(cellRow, cellColumn, board) {
 	var neighbours = [];
@@ -171,7 +135,7 @@ function getNeighbours(cellRow, cellColumn, board) {
 //exclude 0,0
 module.exports = getNeighbours
 
-},{"./indicesOutOfBounds":8}],8:[function(require,module,exports){
+},{"./indicesOutOfBounds":7}],7:[function(require,module,exports){
 var outOfBounds = require('./outOfBounds')
 
 function indicesOutOfBounds(rowIndex, columnIndex, array) {
@@ -181,7 +145,7 @@ function indicesOutOfBounds(rowIndex, columnIndex, array) {
 
 module.exports = indicesOutOfBounds
 
-},{"./outOfBounds":11}],9:[function(require,module,exports){
+},{"./outOfBounds":10}],8:[function(require,module,exports){
 var nextCellState = require('./nextCellState')
 var countAliveNeighbours = require('./countAliveNeighbours')
 var createBoard = require('./createBoard')
@@ -202,7 +166,7 @@ function nextBoard(currentBoard) {
 
 module.exports = nextBoard
 
-},{"./countAliveNeighbours":5,"./createBoard":6,"./nextCellState":10}],10:[function(require,module,exports){
+},{"./countAliveNeighbours":4,"./createBoard":5,"./nextCellState":9}],9:[function(require,module,exports){
 var overPopulated = require('./overPopulated')
 var underPopulated = require('./underPopulated')
 var ressurectable = require('./ressurectable')
@@ -234,31 +198,31 @@ function nextCellState(cellState, neighbourCount) {
 
 module.exports = nextCellState
 
-},{"./overPopulated":12,"./ressurectable":13,"./underPopulated":14}],11:[function(require,module,exports){
+},{"./overPopulated":11,"./ressurectable":12,"./underPopulated":13}],10:[function(require,module,exports){
 function outOfBounds(index, array) {
 return (index < 0 || index >= array.length);
 }
 module.exports = outOfBounds
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 function overPopulated(neighbourCount) {
   return neighbourCount > 3;
 }
 module.exports = overPopulated
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function ressurectable(neighbourCount) {
   return neighbourCount === 3;
 }
 module.exports = ressurectable
 
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 function underPopulated(neighbourCount) {
   return neighbourCount < 2;
 }
 module.exports = underPopulated
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.0
  * http://jquery.com/

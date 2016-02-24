@@ -3,9 +3,7 @@ var makeHTMLBoard = require('./javascript/components/htmlBoard')
 var $ = require('jquery')
 var createBoard = require('./javascript/createBoard')
 var nextBoard = require('./javascript/nextBoard') 
-var spawnRandom = require('./javascript/components/spawnRandom')
 var spawnRandomArray = require('./javascript/components/spawnRandomArray')
-
 var board = createBoard(20)
 var boardElements = $(".cell")
 
@@ -27,17 +25,9 @@ function updateboard(board, boardElements) {
 
 $(function () {
 	$('#spawn-button').click(function() {
-		console.log('click')
 		spawnRandomArray(board)
 	})
 })
-
-// $(function () {
-// 	$('#start-button').click(function() {
-// 		console.log('start')
-// 		// how to trigger start?
-// 	})
-// })
 
 var step = function(){
 	updateboard(board, boardElements);
