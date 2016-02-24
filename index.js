@@ -13,7 +13,7 @@ var boardElements = $(".cell")
 function updateboard(board, boardElements) {
 	for (var i = 0; i < board.length; i++) {
 		for (var j = 0; j < board.length; j++) {
-			var cellSelector = "#row" + i + ", .cell" + j
+			var cellSelector = "#row" + i + " .cell" + j
 			$(cellSelector).removeClass("alive").removeClass("dead")
 			if (board[i][j] === false) {
 				$(cellSelector).addClass("dead")
