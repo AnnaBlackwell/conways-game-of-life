@@ -28,17 +28,16 @@ function updateboard(board, boardElements) {
 $(function () {
 	$('#spawn-button').click(function() {
 		console.log('click')
-		// spawnRandom(board)
 		spawnRandomArray(board)
 	})
 })
 
-$(function () {
-	$('#start-button').click(function() {
-		console.log('start')
-		// how to trigger start?
-	})
-})
+// $(function () {
+// 	$('#start-button').click(function() {
+// 		console.log('start')
+// 		// how to trigger start?
+// 	})
+// })
 
 var step = function(){
 	updateboard(board, boardElements);
