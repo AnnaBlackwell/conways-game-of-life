@@ -15,11 +15,11 @@
 	margin-top: 5%;
 }
 
-div .cell .alive {
+div .alive {
 	background-color: green;
 }
 
-div .cell .dead {
+div .dead {
 	background-color: white;
 }
 
