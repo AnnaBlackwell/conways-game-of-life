@@ -117,8 +117,8 @@ function spawnRandomArray(board) {
     	}
     }
 }
-//this is working and the next board state keeps some cells with class=alive 
-//CSS is not changing for alive/dead
+//this is working and the next board state keeps some cells with class=alive. 
+//It makes an entire column either alive or dead. 
 
 module.exports = spawnRandomArray
 
