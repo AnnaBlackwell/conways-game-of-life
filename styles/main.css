@@ -55,3 +55,13 @@ div .alive {
 	  from { background-color: #94B0DA; }
 	  to { background-color: #AE76A6; }
 	}
+
+#colourselector {
+	border-width: 2px;
+	border-color: gray;
+	border-style: dashed;
+	margin: 2% 40%;
+}
+
+
+

@@ -6,6 +6,7 @@ var spawnRandomArray = require('./javascript/components/spawnRandomArray')
 var audioFunctions = require('./javascript/components/audioFunctions')
 var board = createBoard(20)
 var boardElements = $(".cell")
+var draw = require('./javascript/components/canvas')
 
 
 function updateboard(board, boardElements) {
@@ -34,5 +35,7 @@ var step = function(){
 	board = nextBoard(board);
 	console.log('working')
 }
+
+
 
 var intervalStep = setInterval(step, 100);
