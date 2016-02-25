@@ -36,7 +36,7 @@ var step = function(){
 	console.log('working')
 }
 
-var intervalStep = setInterval(step, 1000);
+var intervalStep = setInterval(step, 100);
 },{"./javascript/components/audioFunctions":2,"./javascript/components/htmlBoard":3,"./javascript/components/spawnRandomArray":4,"./javascript/createBoard":6,"./javascript/nextBoard":9,"jquery":15}],2:[function(require,module,exports){
 var $ = require('jquery')
 

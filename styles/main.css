@@ -28,10 +28,30 @@ button {
 	background-color: #BBC7CE;
 }
 
-/*Idea: have the alive cell colour gradually change over time
-
 div .alive {
-	transition: ;
-	background
+	-webkit-animation: color_change 1s infinite alternate;
+    -moz-animation: color_change 1s infinite alternate;
+    -o-animation: color_change 1s infinite alternate;
+    animation: color_change 1s infinite alternate;
 }
-*/
+
+	@-webkit-keyframes color_change {
+	  from { background-color: #94B0DA; }
+	  to { background-color: #AE76A6; }
+	}
+	@-moz-keyframes color_change {
+	  from { background-color: #94B0DA; }
+	  to { background-color: #AE76A6; }
+	}
+	@-ms-keyframes color_change {
+	  from { background-color: #94B0DA; }
+	  to { background-color: #AE76A6; }
+	}
+	@-o-keyframes color_change {
+	  from { background-color: #94B0DA; }
+	  to { background-color: #AE76A6; }
+	}
+	@keyframes color_change {
+	  from { background-color: #94B0DA; }
+	  to { background-color: #AE76A6; }
+	}
