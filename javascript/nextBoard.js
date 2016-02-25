@@ -12,7 +12,6 @@ function nextBoard(currentBoard) {
 	    	newBoard[i][j] = nextCellState(currentBoard[i][j], countAliveNeighbours(i,j,currentBoard));
 		  }
 	  }
-	// console.log(newBoard);
 	return newBoard
 }
 

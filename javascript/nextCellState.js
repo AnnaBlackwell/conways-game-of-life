@@ -13,17 +13,18 @@ function nextCellState(cellState, neighbourCount) {
 		    return false;
 		}
 		else {
+			//trigger sound
 			return true;
 		}
 	   }
 	 else {
 	 	if(ressurectable(neighbourCount) ){
+	 		//trigger sound
 		   return true;
 		 }
 		 else {
 		 	return false;
 		 }
-
 	}
 }
 

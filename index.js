@@ -1,9 +1,9 @@
-// var doSomethingToDivCSS = require('./javascript/components/getDiv.js')
 var makeHTMLBoard = require('./javascript/components/htmlBoard')
 var $ = require('jquery')
 var createBoard = require('./javascript/createBoard')
 var nextBoard = require('./javascript/nextBoard') 
 var spawnRandomArray = require('./javascript/components/spawnRandomArray')
+var audioFunctions = require('./javascript/components/audioFunctions')
 var board = createBoard(20)
 var boardElements = $(".cell")
 
@@ -35,4 +35,4 @@ var step = function(){
 	console.log('working')
 }
 
-var intervalStep = setInterval(step, 100);
+var intervalStep = setInterval(step, 1000);

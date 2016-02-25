@@ -9,6 +9,7 @@
   "dependencies": {
     "browserify": "^13.0.0",
     "clear": "0.0.1",
+    "ion-sound": "^3.0.6",
     "jquery": "^2.2.0",
     "watchify": "^3.7.0"
   },
