@@ -1,7 +1,7 @@
 {
-  "name": "conways-game-of-sound",
+  "name": "conways-game-of-life",
   "version": "0.0.1",
-  "description": "Conways game of sound",
+  "description": "Conways game of life",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -9,7 +9,6 @@
   "dependencies": {
     "browserify": "^13.0.0",
     "clear": "0.0.1",
-    "ion-sound": "^3.0.6",
     "jquery": "^2.2.0",
     "watchify": "^3.7.0"
   },
@@ -27,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AnnaBlackwell/conways-game-of-sound.git"
+    "url": "git+https://github.com/AnnaBlackwell/conways-game-of-life.git"
   },
   "author": "annablackwell44@gmail.com",
   "license": "MIT",
+  "homepage": "https://github.com/AnnaBlackwell/conways-game-of-life#readme",
   "bugs": {
-    "url": ""
-  },
-  "homepage": ""
+    "url": "https://github.com/AnnaBlackwell/conways-game-of-life/issues"
+  }
 }
