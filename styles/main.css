@@ -1,6 +1,6 @@
 .cell {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border-color: #f2f2f2;
 	border-width: 1px;
 	border-style: solid;
@@ -9,10 +9,10 @@
 }
 
 #board {
-	width: 670px;
-	margin-left: 30%;
-	margin-right: 30%;
-	margin-top: 5%;
+	width: 820px;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 1%;
 }
 
 div .alive {
@@ -23,9 +23,18 @@ div .dead {
 	background-color: #FEFFFE;
 }
 
+
+body {
+	background-color: #122932;
+}
+
 button {
-	margin: 20px;
-	background-color: #BBC7CE;
+	margin: 5px;
+	margin-left: 45%;
+	margin-top: 1%;
+	height: 50px;
+	background-color: #E2E2E2;
+	font-size: 14pt;
 }
 
 div .alive {
@@ -36,26 +45,26 @@ div .alive {
 }
 
 	@-webkit-keyframes color_change {
-	  from { background-color: #94B0DA; }
-	  to { background-color: #AE76A6; }
+	  from { background-color: #DA8A73; }
+	  to { background-color: #E0D68A; }
 	}
 	@-moz-keyframes color_change {
-	  from { background-color: #94B0DA; }
-	  to { background-color: #AE76A6; }
+	  from { background-color: #DA8A73; }
+	  to { background-color: #E0D68A; }
 	}
 	@-ms-keyframes color_change {
-	  from { background-color: #94B0DA; }
-	  to { background-color: #AE76A6; }
+	  from { background-color: #DA8A73; }
+	  to { background-color: #E0D68A; }
 	}
 	@-o-keyframes color_change {
-	  from { background-color: #94B0DA; }
-	  to { background-color: #AE76A6; }
+	  from { background-color: #DA8A73; }
+	  to { background-color: #E0D68A; }
 	}
 	@keyframes color_change {
-	  from { background-color: #94B0DA; }
-	  to { background-color: #AE76A6; }
+	  from { background-color: #DA8A73; }
+	  to { background-color: #E0D68A; }
 	}
-
+/*
 #colourselector {
 	border-width: 2px;
 	border-color: gray;
@@ -63,5 +72,5 @@ div .alive {
 	margin: 2% 40%;
 }
 
-
+*/
 

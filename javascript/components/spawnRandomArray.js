@@ -1,6 +1,6 @@
 var $ = require('jquery')
 var createBoard = require('../createBoard')
-var board = createBoard(20)
+var board = createBoard(30)
 
 function spawnRandomArray(board) {
 	for (var i = 0; i < board.length; i++) {

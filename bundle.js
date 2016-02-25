@@ -4,10 +4,9 @@ var $ = require('jquery')
 var createBoard = require('./javascript/createBoard')
 var nextBoard = require('./javascript/nextBoard') 
 var spawnRandomArray = require('./javascript/components/spawnRandomArray')
-var audioFunctions = require('./javascript/components/audioFunctions')
-var board = createBoard(20)
+var board = createBoard(30)
 var boardElements = $(".cell")
-var draw = require('./javascript/components/canvas')
+// var draw = require('./javascript/components/canvas')
 
 
 function updateboard(board, boardElements) {
@@ -37,61 +36,8 @@ var step = function(){
 	console.log('working')
 }
 
-
-
 var intervalStep = setInterval(step, 100);
-},{"./javascript/components/audioFunctions":2,"./javascript/components/canvas":3,"./javascript/components/htmlBoard":4,"./javascript/components/spawnRandomArray":5,"./javascript/createBoard":7,"./javascript/nextBoard":10,"jquery":16}],2:[function(require,module,exports){
-var $ = require('jquery')
-
-var audio0 = new Audio('audio/39187__jobro__piano-ff-040.mp3')
-var audio1 = new Audio('audio/39189__jobro__piano-ff-042.mp3')
-var audio2 = new Audio('audio/39191__jobro__piano-ff-044.mp3')
-var audio3 = new Audio('audio/39195__jobro__piano-ff-047.mp3')
-var audio4 = new Audio('audio/39197__jobro__piano-ff-049.mp3')
-var audio5 = new Audio('audio/39200__jobro__piano-ff-052.mp3')
-var audio6 = new Audio('audio/39202__jobro__piano-ff-054.mp3')
-var audio7 = new Audio('audio/39204__jobro__piano-ff-056.mp3')
-var audio8 = new Audio('audio/39207__jobro__piano-ff-059.mp3')
-var audio9 = new Audio('audio/39209__jobro__piano-ff-061.mp3')
-
-
-module.exports = $(function (){
-	// $('#sound-button').click(function() {
-		// console.log('click')
-		// audio2.play()
-		// console.log('sound is working')
-
-	$('#row0').delegate('.cell')
-		console.log('still working')
-		if ($('div').hasClass('alive')) {
-		console.log('audio0 triggered')
-		audio0.play()
-		}
-	})
-// })
-
-//this is working only on click event
-},{"jquery":16}],3:[function(require,module,exports){
-
-
-// function draw() {
-//     var ctx = document.getElementById('colourselector').getContext('2d');
-//     for (var i = 0; i < 6; i ++){
-//       for (var j = 0; j < 6; j ++){
-//         ctx.strokeStyle = 'rgb(0,' + Math.floor(255-42.5*i) + ',' + 
-//                          Math.floor(255-42.5*j) + ')';
-//         ctx.beginPath();
-//         ctx.arc(12.5+j*25,12.5+i*25,10,0,Math.PI*2,true);
-//         ctx.stroke();
-//       }
-//     }
-//   }
-
-// draw()
-
-// module.exports = draw
-
-},{}],4:[function(require,module,exports){
+},{"./javascript/components/htmlBoard":2,"./javascript/components/spawnRandomArray":3,"./javascript/createBoard":5,"./javascript/nextBoard":8,"jquery":14}],2:[function(require,module,exports){
 
 var makeHTMLBoard = function(size) {
 
@@ -118,12 +64,12 @@ var makeHTMLBoard = function(size) {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-	makeHTMLBoard(20)
+	makeHTMLBoard(30)
 })
-},{}],5:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 var $ = require('jquery')
 var createBoard = require('../createBoard')
-var board = createBoard(20)
+var board = createBoard(30)
 
 function spawnRandomArray(board) {
 	for (var i = 0; i < board.length; i++) {
@@ -140,7 +86,7 @@ function spawnRandomArray(board) {
 
 module.exports = spawnRandomArray
 
-},{"../createBoard":7,"jquery":16}],6:[function(require,module,exports){
+},{"../createBoard":5,"jquery":14}],4:[function(require,module,exports){
 var getNeighbours = require('./getNeighbours')
 function countAliveNeighbours(cellRow, cellColumn, board) {
   var count = 0;
@@ -157,7 +103,7 @@ function countAliveNeighbours(cellRow, cellColumn, board) {
 }
 module.exports = countAliveNeighbours
 
-},{"./getNeighbours":8}],7:[function(require,module,exports){
+},{"./getNeighbours":6}],5:[function(require,module,exports){
 function createBoard(size) {
   var board = [];
 
@@ -172,7 +118,7 @@ function createBoard(size) {
 
 }
 module.exports = createBoard
-},{}],8:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var indicesOutOfBounds = require('./indicesOutOfBounds')
 function getNeighbours(cellRow, cellColumn, board) {
 	var neighbours = [];
@@ -189,7 +135,7 @@ function getNeighbours(cellRow, cellColumn, board) {
 //exclude 0,0
 module.exports = getNeighbours
 
-},{"./indicesOutOfBounds":9}],9:[function(require,module,exports){
+},{"./indicesOutOfBounds":7}],7:[function(require,module,exports){
 var outOfBounds = require('./outOfBounds')
 
 function indicesOutOfBounds(rowIndex, columnIndex, array) {
@@ -199,7 +145,7 @@ function indicesOutOfBounds(rowIndex, columnIndex, array) {
 
 module.exports = indicesOutOfBounds
 
-},{"./outOfBounds":12}],10:[function(require,module,exports){
+},{"./outOfBounds":10}],8:[function(require,module,exports){
 var nextCellState = require('./nextCellState')
 var countAliveNeighbours = require('./countAliveNeighbours')
 var createBoard = require('./createBoard')
@@ -219,7 +165,7 @@ function nextBoard(currentBoard) {
 
 module.exports = nextBoard
 
-},{"./countAliveNeighbours":6,"./createBoard":7,"./nextCellState":11}],11:[function(require,module,exports){
+},{"./countAliveNeighbours":4,"./createBoard":5,"./nextCellState":9}],9:[function(require,module,exports){
 var overPopulated = require('./overPopulated')
 var underPopulated = require('./underPopulated')
 var ressurectable = require('./ressurectable')
@@ -252,31 +198,31 @@ function nextCellState(cellState, neighbourCount) {
 
 module.exports = nextCellState
 
-},{"./overPopulated":13,"./ressurectable":14,"./underPopulated":15}],12:[function(require,module,exports){
+},{"./overPopulated":11,"./ressurectable":12,"./underPopulated":13}],10:[function(require,module,exports){
 function outOfBounds(index, array) {
 return (index < 0 || index >= array.length);
 }
 module.exports = outOfBounds
 
-},{}],13:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 function overPopulated(neighbourCount) {
   return neighbourCount > 3;
 }
 module.exports = overPopulated
 
-},{}],14:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function ressurectable(neighbourCount) {
   return neighbourCount === 3;
 }
 module.exports = ressurectable
 
-},{}],15:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 function underPopulated(neighbourCount) {
   return neighbourCount < 2;
 }
 module.exports = underPopulated
 
-},{}],16:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.0
  * http://jquery.com/
