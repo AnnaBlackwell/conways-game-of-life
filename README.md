@@ -1,1 +1,1 @@
-# conways-game-of-sound
+# conways-game-of-life
