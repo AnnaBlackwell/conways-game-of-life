@@ -3,9 +3,9 @@ var $ = require('jquery')
 var createBoard = require('./javascript/createBoard')
 var nextBoard = require('./javascript/nextBoard') 
 var spawnRandomArray = require('./javascript/components/spawnRandomArray')
-var audioFunctions = require('./javascript/components/audioFunctions')
-var board = createBoard(20)
+var board = createBoard(30)
 var boardElements = $(".cell")
+// var draw = require('./javascript/components/canvas')
 
 
 function updateboard(board, boardElements) {
